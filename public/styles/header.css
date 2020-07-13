@@ -1,0 +1,14 @@
+header {
+  height: 400px;
+  width: 100vw;
+  background-color: #1e005e;
+  background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */;
+  background-color: #ffe8fd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+

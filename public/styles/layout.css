@@ -3,6 +3,10 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
+ h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+ }
 html {
   box-sizing: border-box;
 }
@@ -23,3 +27,17 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ body {
+  font-family: 'Source Sans Pro', sans-serif;
+ }
+
+ main {
+   /* height: 40px; */
+   margin: auto;
+   width: 90vw;
+   background-color: #f4f1ec;
+   /* background-color: aquamarine; */
+
+ }
+

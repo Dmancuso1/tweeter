@@ -1,0 +1,15 @@
+nav {
+  height: 120px;
+  width: 100vw;
+  padding: 0 1.5em;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+nav span#logo {
+  font-family: 'Bungee', cursive;  /* Apply this only to the TWEETER LOGO ! */
+}
