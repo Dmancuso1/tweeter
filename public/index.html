@@ -25,13 +25,14 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
+
     <nav>
       <span id="logo">tweeter</span>
       <span><strong>Write</strong> a new tweet</span>
     </nav>
 
     <!-- Header -->
-    <header>
+    <header class="main-header">
       <div class="header-img">
         <img src="/images/profile-hex.png" alt="">
       </div>
@@ -48,13 +49,37 @@
 
         <form action="/tweets/" method="POST" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
           <label for="tweet-text"><h4>What are you humming about?</h4></label>
-          <textarea name="text" id="tweet-text" rows="1" autofocus></textarea>
+          <textarea name="text" id="tweet-text" rows="1"></textarea>
           <div id="form-btm">
             <button type="submit">Tweet</button>
             <h3><output name="counter" class="counter" for="tweet-text">140</output></h3>
           </div>
         </form>
       </section>
+
+      <!-- Tweets Container -->
+      <section class="tweets">
+        <!-- Tweet Container -->
+        <article class="tweet">
+          <header>
+            <div class="user-logo">
+              <img src="/images/profile-hex.png" height="40px"; width="40px"; alt="">
+              <span>Tweeter's name</span>
+            </div>
+            <span class="handle">@Robert Louis</span>
+          </header>
+          <section>
+            <p>"Don't judge each day by the harvest you reap but by the seeds that you plant."</p>
+          </section>
+          <footer>
+            <span>date here</span>
+            <div>
+              <span><3</span>
+            </div>
+          </footer>  
+        </article>
+      </section>
+      <!--  -->
 
     </main>
   </body>
