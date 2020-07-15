@@ -47,6 +47,7 @@ section.tweets {
 }
 
 article.tweet {
+  margin-bottom: 2rem;
   border: 2px solid #a8a7a2;
   color: #a8a7a2;
   display: flex;
@@ -56,6 +57,10 @@ article.tweet {
 
 article.tweet img {
   opacity: .5;
+}
+
+article.tweet span {
+  padding-left: .5rem;
 }
 
 article.tweet:hover {

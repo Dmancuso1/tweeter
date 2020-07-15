@@ -74,6 +74,36 @@ const createTweetElement = (tweetObj) => {
 
 
 
+
 $(document).ready(function () {
-  renderTweets(tweetData)
+
+
+  // renderTweets(tweetData)
+
+
+  $('#tweet-form').submit(function(e) {
+    e.preventDefault()
+    // console.log(e)
+    const textContent = $('#tweet-text');
+    // console.log('text content', textContent)
+    const serialized = $(textContent).serialize() 
+    // console.log('serialized ', serialized)
+    $.ajax('/tweets/', {method: 'POST', data: serialized})
+    .then(function (result) {
+      // console.log('then func data', result);
+    }); 
+  })
+
+  //load tweets from db
+  const loadTweets = () => {
+    $.ajax({
+      url: '/tweets/', 
+      method: 'GET'
+    }).then((response) => {
+      renderTweets(response)
+    });
+  }
+  loadTweets();
+
+
 })

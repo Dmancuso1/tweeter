@@ -47,7 +47,7 @@
       <section class="new-tweet">
         <!-- <h2>Compose Tweet</h2> -->
 
-        <form action="/tweets/" method="POST" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
+        <form id="tweet-form" action="/tweets/" method="POST" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
           <!-- <label for="tweet-text"><h4>What are you humming about?</h4></label> -->
           <textarea name="text" id="tweet-text" rows="1" placeholder="What are you humming about?"></textarea>
           <div id="form-btm">
@@ -59,27 +59,8 @@
 
       <!-- Tweets Container -->
       <section class="tweets" id="tweets-container">
-        <!-- Tweet Container -->
-        <!-- <article class="tweet">
-          <header>
-            <div class="user-logo">
-              <img src="/images/profile-hex.png" height="40px"; width="40px"; alt="">
-              <span>Tweeter's name</span>
-            </div>
-            <span class="handle">@Robert Louis</span>
-          </header>
-          <section>
-            <p>"Don't judge each day by the harvest you reap but by the seeds that you plant."</p>
-          </section>
-          <footer>
-            <span>date here</span>
-            <div>
-              <span><3</span>
-            </div>
-          </footer>  
-        </article>
-      </section> -->
-      <!--  -->
+        <!-- tweets articles will be appended here -->
+
 
     </main>
   </body>
