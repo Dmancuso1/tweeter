@@ -21,6 +21,7 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/escape.js"></script>
   </head>
 
   <body>
@@ -48,7 +49,7 @@
         <!-- <h2>Compose Tweet</h2> -->
 
         <form id="tweet-form" action="/tweets/" method="POST" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
-          <!-- <label for="tweet-text"><h4>What are you humming about?</h4></label> -->
+          <h5 id="ValidateError"></h5>
           <textarea name="text" id="tweet-text" rows="1" placeholder="What are you humming about?"></textarea>
           <div id="form-btm">
             <button type="submit">Tweet</button>

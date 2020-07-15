@@ -4,8 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-
+ // use this to escape XSS injections.
+const escape = function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 
 // takes in array of tweet objects
@@ -17,6 +21,8 @@ const renderTweets = (tweets) => {
     $('#tweets-container').append(createTweetElement(tweet))
   })
 }
+
+
 
 // Returns a tweet(article) containing all the HTML structure of the tweet. 
 const createTweetElement = (tweetObj) => {
@@ -31,7 +37,7 @@ const createTweetElement = (tweetObj) => {
     <span class="handle">${tweetObj.user.handle}</span>
   </header>
   <section>
-    <p>"${tweetObj.content.text}"</p>
+    <p>"${escape(tweetObj.content.text)}"</p>
   </section>
   <footer>
     <span>${date}</span>
@@ -46,27 +52,30 @@ const createTweetElement = (tweetObj) => {
 
 
 
-
 $(document).ready(function () {
 
-
+  // submit tweet form with ajax. form is serialized
   $('#tweet-form').submit(function(e) {
     e.preventDefault()
-    const userInput = $('#tweet-text').val(); 
-    if (!userInput) {
-      alert('user field is empty');
+    const userInput = $(this).find('textarea').val(); 
+    if (userInput === "") {
+      $('#ValidateError').text("Oops! You didn't enter anything!")
+      $("#ValidateError").slideDown(200);
       return;
     }
     if (userInput.length > 140) {
-      alert('over 140 chars');
+      $('#ValidateError').hide()
+      $('#ValidateError').text("Oops! You're over the character limit!")
+      $("#ValidateError").slideDown(200);
       return;
     }
-    const textContent = $('#tweet-text');
-    const serialized = $(textContent).serialize() 
+    const serialized = $(this).serialize()
+    console.log(serialized)
     $.ajax('/tweets/', {method: 'POST', data: serialized})
     .then(function (result) {
       $('#tweets-container').empty()
       loadTweets();
+      $('#ValidateError').css('display', 'none')
       $('#tweet-form').trigger("reset")
     }); 
   })

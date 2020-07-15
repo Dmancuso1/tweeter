@@ -2,6 +2,14 @@
   color: red;
 }
 
+#ValidateError {
+  display: none;
+  color: red;
+  border: 2px solid red;
+  padding: .25rem;
+  margin-bottom: .5rem;
+}
+
 form {
   /* height: 150px;   */
   padding: 1rem 1rem;
