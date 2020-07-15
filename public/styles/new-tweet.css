@@ -54,6 +54,10 @@ article.tweet {
   padding: 0 1rem;
 }
 
+article.tweet img {
+  opacity: .5;
+}
+
 article.tweet:hover {
   border-color: #545149;
   color: #545149;
@@ -65,7 +69,11 @@ article.tweet:hover
 .handle{
   cursor: pointer;
   display: inline-block;
-  
+}
+
+article.tweet:hover 
+img{
+  opacity: 1;
 }
 
 article.tweet header, article.tweet footer {
