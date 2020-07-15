@@ -6,32 +6,6 @@
 
 
 
-//////// Remove after testing ! ///////////
-const tweetData = [
-  {
-    user: {
-      name: "Descartes",
-      avatars: "https://i.imgur.com/nlhLi3I.png",
-      handle: "@rd"
-    },
-    content: {
-      text: "Je pense , donc je suis"
-    },
-    created_at: 1461113959088
-  },
-  {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@SirIsaac"
-    },
-    content: {
-      text: "If I have seen further it is by standing on the shoulders of giants"
-    },
-    created_at: 1461116232227
-  }
-];
-//////// Remove after testing ! ///////////
 
 
 // takes in array of tweet objects
@@ -39,7 +13,6 @@ const tweetData = [
 //appends each to #tweets-container. 
 const renderTweets = (tweets) => {
   tweets.forEach((tweet) => {
-    console.log(tweet)
     createTweetElement(tweet)
     $('#tweets-container').append(createTweetElement(tweet))
   })
@@ -47,7 +20,6 @@ const renderTweets = (tweets) => {
 
 // Returns a tweet(article) containing all the HTML structure of the tweet. 
 const createTweetElement = (tweetObj) => {
-  console.log(tweetObj);
   const date = new Date(1382086394000)
   let $tweet = `
   <article class="tweet">
@@ -78,19 +50,24 @@ const createTweetElement = (tweetObj) => {
 $(document).ready(function () {
 
 
-  // renderTweets(tweetData)
-
-
   $('#tweet-form').submit(function(e) {
     e.preventDefault()
-    // console.log(e)
+    const userInput = $('#tweet-text').val(); 
+    if (!userInput) {
+      alert('user field is empty');
+      return;
+    }
+    if (userInput.length > 140) {
+      alert('over 140 chars');
+      return;
+    }
     const textContent = $('#tweet-text');
-    // console.log('text content', textContent)
     const serialized = $(textContent).serialize() 
-    // console.log('serialized ', serialized)
     $.ajax('/tweets/', {method: 'POST', data: serialized})
     .then(function (result) {
-      // console.log('then func data', result);
+      $('#tweets-container').empty()
+      loadTweets();
+      $('#tweet-form').trigger("reset")
     }); 
   })
 
@@ -100,7 +77,7 @@ $(document).ready(function () {
       url: '/tweets/', 
       method: 'GET'
     }).then((response) => {
-      renderTweets(response)
+      renderTweets(response.reverse())
     });
   }
   loadTweets();
