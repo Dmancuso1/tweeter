@@ -7,6 +7,9 @@ const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
 
+const moment = require('moment'); // require
+moment().format(); 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
