@@ -12,7 +12,7 @@ const escape = function(str) {
 };
 
 // takes in array of tweet objects
-// leverage createTweetElement func by passing the tweet object to it.
+// leverage createTweetElement(tweet)
 //appends each to #tweets-container
 const renderTweets = (tweets) => {
   tweets.forEach((tweet) => {
@@ -21,7 +21,7 @@ const renderTweets = (tweets) => {
   });
 };
 
-// Returns a tweet(article) containing all the HTML structure of the tweet.
+// Returns a tweet(article)
 const createTweetElement = (tweetObj) => {
   const date = Date(tweetObj.created_at).toString();
   let $tweet = `
@@ -39,7 +39,7 @@ const createTweetElement = (tweetObj) => {
   <footer>
     <span id="date">${date}</span>
     <div>
-      <span><3</span>
+      <img src="./images/heart-red.svg" id="heart" height="30px"; width="30px" alt="<3">
     </div>
   </footer>  
 </article>

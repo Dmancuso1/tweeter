@@ -4,7 +4,7 @@
 <head>
   <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
-
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     type="text/css" />
@@ -24,7 +24,10 @@
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-  <script type="text/javascript" src="/scripts/escape.js"></script>
+  <script type="text/javascript" src="/scripts/autofocus-small-screens.js"></script>
+
+
+  
 </head>
 
 <body>
@@ -32,25 +35,23 @@
   <!-- Top nav bar  -->
   <nav>
     <span id="logo">tweeter</span>
-    <span><strong>Write</strong> a new tweet</span>
+    <span id="write-new-tweet"><strong>Write</strong> a new tweet</span>
   </nav>
 
   <!-- Header -->
   <header class="main-header">
     <div class="header-img">
-      <img src="/images/profile-hex.png" alt="">
+      <img src="/images/profile-hex.png" alt="profile image">
     </div>
     <div class="header-name">
       <h2>Your Name</h2>
     </div>
   </header>
 
-  <!-- Page-specific (main) content here -->
+  <!-- Page-specific (main) content -->
   <main class="container">
 
     <section class="new-tweet">
-      <!-- <h2>Compose Tweet</h2> -->
-
       <form id="tweet-form" action="/tweets/" method="POST" enctype="application/x-www-form-urlencoded"
         accept-charset="UTF-8">
         <h5 id="ValidateError"></h5>
@@ -66,8 +67,8 @@
     <section class="tweets" id="tweets-container">
       <!-- tweets articles will be appended here -->
 
-
   </main>
+
 </body>
 
 </html>

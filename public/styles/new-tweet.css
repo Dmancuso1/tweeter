@@ -43,11 +43,21 @@ button:hover {
   border-bottom: 2px solid #545149;
   resize: none;
 }
+
 #form-btm {
   display: flex;
   justify-content: space-between;
-
 }
+
+
+  /* Another smartphone breakpoint is maximum width of around 420px */
+  @media only screen and (max-width: 420px) {
+    #tweet-text {
+      height: 4rem;
+    }
+  }
+
+
 
 /*  */
 section.tweets {
@@ -67,15 +77,27 @@ article.tweet {
 article.tweet img {
   opacity: .5;
 }
+article.tweet:hover 
+img{
+  opacity: 1;
+}
 
-article.tweet span {
+article.tweet .user-logo span {
   padding-left: .5rem;
 }
+
+article.tweet footer span#date  {
+  font-size: 75%;
+}
+
+article.tweet footer img#heart  {
+  padding-left: 1rem;
+}
+
 
 article.tweet:hover {
   border-color: #545149;
   color: #545149;
-  /* cursor: pointer; */
   box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
 }
 
@@ -85,20 +107,11 @@ article.tweet:hover
   display: inline-block;
 }
 
-article.tweet:hover 
-img{
-  opacity: 1;
-}
-
 article.tweet header, article.tweet footer {
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
   align-items: center;
-}
-
-article.tweet footer span#date  {
-  font-size: 75%;
 }
 
 
@@ -109,8 +122,6 @@ article.tweet header {
 article.tweet header
 .user-logo {
   display: flex;
-  /* flex-direction: row;
-  justify-content: center; */
   align-items: center;
 }
 
@@ -128,11 +139,9 @@ article.tweet header
 article.tweet section {
   border-bottom: 2px solid #545149;
   display: flex;
-  /* justify-content: center; */
 }
 
 article.tweet section p {
   padding: 0 .75em;
-  /* max-width: 100%; */
 }
 

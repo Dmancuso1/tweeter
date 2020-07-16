@@ -1,5 +1,4 @@
 header.main-header {
-  /* margin-top: 8rem; */
   height: 400px;
   width: 100%;
   background-color: #1e005e;
@@ -25,5 +24,17 @@ header .header-img img {
     header .header-img img {
       height: 210px;
       width: 210px;
+    }
+  }
+
+  /* Another smartphone breakpoint is maximum width of around 420px */
+  @media only screen and (max-width: 420px) {
+    header.main-header {
+      margin-top: 4rem;
+      height: 300px;
+    }
+    header .header-img img {
+      height: 150px;
+      width: 150px;
     }
   }
