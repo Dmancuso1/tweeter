@@ -4,6 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
+
+
+
  // use this to escape XSS injections.
 const escape = function(str) {
   let div = document.createElement('div');
@@ -26,7 +30,7 @@ const renderTweets = (tweets) => {
 
 // Returns a tweet(article) containing all the HTML structure of the tweet. 
 const createTweetElement = (tweetObj) => {
-  const date = new Date(1382086394000)
+  const date = Date(tweetObj.created_at).toString();
   let $tweet = `
   <article class="tweet">
   <header>
@@ -58,7 +62,8 @@ $(document).ready(function () {
   $('#tweet-form').submit(function(e) {
     e.preventDefault()
     const userInput = $(this).find('textarea').val(); 
-    if (userInput === "") {
+    if (userInput === "" || !userInput.trim()) {
+      $('#ValidateError').hide()
       $('#ValidateError').text("Oops! You didn't enter anything!")
       $("#ValidateError").slideDown(200);
       return;
@@ -70,7 +75,6 @@ $(document).ready(function () {
       return;
     }
     const serialized = $(this).serialize()
-    console.log(serialized)
     $.ajax('/tweets/', {method: 'POST', data: serialized})
     .then(function (result) {
       $('#tweets-container').empty()
