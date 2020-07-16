@@ -41,10 +41,10 @@ const createTweetElement = (tweetObj) => {
     <span class="handle">${tweetObj.user.handle}</span>
   </header>
   <section>
-    <p>"${escape(tweetObj.content.text)}"</p>
+    <p>${escape(tweetObj.content.text)}</p>
   </section>
   <footer>
-    <span>${date}</span>
+    <span id="date">${date}</span>
     <div>
       <span><3</span>
     </div>
@@ -66,13 +66,13 @@ $(document).ready(function () {
       $('#ValidateError').hide()
       $('#ValidateError').text("Oops! You didn't enter anything!")
       $("#ValidateError").slideDown(200);
-      return;
+      return null;
     }
     if (userInput.length > 140) {
       $('#ValidateError').hide()
       $('#ValidateError').text("Oops! You're over the character limit!")
       $("#ValidateError").slideDown(200);
-      return;
+      return null;
     }
     const serialized = $(this).serialize()
     $.ajax('/tweets/', {method: 'POST', data: serialized})
