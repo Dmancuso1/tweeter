@@ -33,11 +33,22 @@ body {
  }
 
  main {
-   /* height: 40px; */
    margin: auto;
    width: 90vw;
    background-color: #f4f1ec;
    /* background-color: aquamarine; */
+   display: flex;
+   flex-direction: column;
 
  }
 
+  /* Laptops / Desktops: minimum width of 1024px */
+  @media only screen and (min-width: 1024px) {
+    body {
+      display: flex
+    }
+    main {
+      margin-top: 8rem;
+      padding: 2rem;
+    }
+  }

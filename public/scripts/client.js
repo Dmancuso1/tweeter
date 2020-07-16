@@ -4,31 +4,24 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-
-
-
- // use this to escape XSS injections.
+// use this to escape XSS injections.
 const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
-
+};
 
 // takes in array of tweet objects
 // leverage createTweetElement func by passing the tweet object to it.
-//appends each to #tweets-container. 
+//appends each to #tweets-container
 const renderTweets = (tweets) => {
   tweets.forEach((tweet) => {
-    createTweetElement(tweet)
-    $('#tweets-container').append(createTweetElement(tweet))
-  })
-}
+    createTweetElement(tweet);
+    $('#tweets-container').append(createTweetElement(tweet));
+  });
+};
 
-
-
-// Returns a tweet(article) containing all the HTML structure of the tweet. 
+// Returns a tweet(article) containing all the HTML structure of the tweet.
 const createTweetElement = (tweetObj) => {
   const date = Date(tweetObj.created_at).toString();
   let $tweet = `
@@ -52,48 +45,50 @@ const createTweetElement = (tweetObj) => {
 </article>
   `;
   return $tweet;
-}
+};
 
 
 
-$(document).ready(function () {
+$(document).ready(function() {
 
   // submit tweet form with ajax. form is serialized
   $('#tweet-form').submit(function(e) {
-    e.preventDefault()
-    const userInput = $(this).find('textarea').val(); 
+    e.preventDefault();
+    const target = $(this).closest(".new-tweet").find('.counter');
+    const userInput = $(this).find('textarea').val();
     if (userInput === "" || !userInput.trim()) {
-      $('#ValidateError').hide()
-      $('#ValidateError').text("Oops! You didn't enter anything!")
+      $('#ValidateError').hide();
+      $('#ValidateError').text("Oops! You didn't enter anything!");
       $("#ValidateError").slideDown(200);
       return null;
     }
     if (userInput.length > 140) {
-      $('#ValidateError').hide()
-      $('#ValidateError').text("Oops! You're over the character limit!")
+      $('#ValidateError').hide();
+      $('#ValidateError').text("Oops! You're over the character limit!");
       $("#ValidateError").slideDown(200);
       return null;
     }
-    const serialized = $(this).serialize()
+    const serialized = $(this).serialize();
     $.ajax('/tweets/', {method: 'POST', data: serialized})
-    .then(function (result) {
-      $('#tweets-container').empty()
-      loadTweets();
-      $('#ValidateError').css('display', 'none')
-      $('#tweet-form').trigger("reset")
-    }); 
-  })
+      .then(function(result) {
+        $('#tweets-container').empty();
+        target.text(140);
+        loadTweets();
+        $('#ValidateError').css('display', 'none');
+        $('#tweet-form').trigger("reset");
+      });
+  });
 
   //load tweets from db
   const loadTweets = () => {
     $.ajax({
-      url: '/tweets/', 
+      url: '/tweets/',
       method: 'GET'
     }).then((response) => {
-      renderTweets(response.reverse())
+      renderTweets(response.reverse());
     });
-  }
+  };
   loadTweets();
 
 
-})
+});
