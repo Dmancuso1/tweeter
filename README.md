@@ -32,12 +32,12 @@ Icons made by <a href="https://www.flaticon.com/free-icon/heart_833558" title="K
 
 ---
 
-!["mobile view"](./docs/mobile.png)
+!["mobile view"](https://github.com/Dmancuso1/tweeter/raw/master/docs/mobile.png)
 
 ---
 
-!["mobile view"](./docs/wide.png)
+!["mobile view"](https://github.com/Dmancuso1/tweeter/raw/master/docs/wide.png)
 
 ---
 
-!["mobile view"](./docs/error.png)
+!["mobile view"](https://github.com/Dmancuso1/tweeter/raw/master/docs/error.png)
