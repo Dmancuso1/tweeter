@@ -3,7 +3,6 @@ header.main-header {
   width: 100%;
   background-color: #1e005e;
   background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */;
   background-color: #ffe8fd;
   display: flex;
   flex-direction: column;
@@ -15,26 +14,25 @@ header .header-img img {
   width: 180px;
 }
 
-
-  /* Laptops / Desktops: minimum width of 1024px */
-  @media only screen and (min-width: 1024px) {
-    header.main-header {
-      margin: 10rem 3rem 0 3rem;
-    }
-    header .header-img img {
-      height: 210px;
-      width: 210px;
-    }
+/* Laptops / Desktops: minimum width of 1024px */
+@media only screen and (min-width: 1024px) {
+header.main-header {
+    margin: 10rem 3rem 0 3rem;
   }
-
-  /* Another smartphone breakpoint is maximum width of around 420px */
-  @media only screen and (max-width: 420px) {
-    header.main-header {
-      margin-top: 4rem;
-      height: 300px;
-    }
-    header .header-img img {
-      height: 150px;
-      width: 150px;
-    }
+  header .header-img img {
+    height: 210px;
+    width: 210px;
   }
+}
+
+/* Another smartphone breakpoint is maximum width of around 420px */
+@media only screen and (max-width: 420px) {
+  header.main-header {
+    margin-top: 4rem;
+    height: 300px;
+  }
+  header .header-img img {
+    height: 150px;
+    width: 150px;
+  }
+}

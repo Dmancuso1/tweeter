@@ -16,6 +16,11 @@ nav span#logo {
   font-family: 'Bungee', cursive;  /* Apply this only to the TWEETER LOGO ! */
 }
 
+nav span#write-new-tweet:hover {
+  cursor: pointer;
+  font-weight: 700;
+}
+
   /* Laptops / Desktops: minimum width of 1024px */
   @media only screen and (min-width: 1024px) {
     nav {
@@ -26,14 +31,14 @@ nav span#logo {
     }
   }
 
-    /* Another smartphone breakpoint is maximum width of around 420px */
-    @media only screen and (max-width: 420px) {
-      /* Write smartphone only styles here */
-      nav {
-        flex-direction: column;
-        justify-content: space-evenly;
-        background-color: #4056A1;
-        color: #FFFFFF;
-        padding: 0 .75em;
-      }
+  /* Another smartphone breakpoint is maximum width of around 420px */
+  @media only screen and (max-width: 420px) {
+    /* Write smartphone only styles here */
+    nav {
+      flex-direction: column;
+      justify-content: space-evenly;
+      background-color: #4056A1;
+      color: #FFFFFF;
+      padding: 0 .75em;
     }
+  }

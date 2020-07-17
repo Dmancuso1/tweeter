@@ -4,10 +4,15 @@
  * Do not modify these two selectors, please
  */
 
- h1, h2, h3, h4, h5, h6, span {
+ /*
+ * Global layout
+ */
+
+h1, h2, h3, h4, h5, h6, span {
   margin: 0;
   padding: 0;
- }
+}
+
 html {
   box-sizing: border-box;
 }
@@ -15,19 +20,13 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
-
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+/* Additional CSS can be defined below or in other CSS files, as per instructions */
 
  body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -37,10 +36,8 @@ body {
    margin: auto;
    width: 90vw;
    background-color: #f4f1ec;
-   /* background-color: aquamarine; */
    display: flex;
    flex-direction: column;
-
  }
 
   /* Laptops / Desktops: minimum width of 1024px */

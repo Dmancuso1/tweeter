@@ -11,8 +11,8 @@
   margin-bottom: .5rem;
 }
 
+/* ----- Tweet Form ----- */
 form {
-  /* height: 150px;   */
   padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
@@ -22,9 +22,11 @@ form {
 form label, textarea, div {
   padding: .5rem 0;
 }
+
 #output, button {
   font-family: 'Bungee', cursive; 
 }
+
 button {
   padding: .25rem .4rem;
   border: none;
@@ -32,10 +34,12 @@ button {
   color: #FFFFFF;
   background-color: #4056A1;
 }
+
 button:hover {
   cursor: pointer;
   box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
 }
+
 #tweet-text {
   background-color: #f4f1ec;
   border: 0;
@@ -49,17 +53,15 @@ button:hover {
   justify-content: space-between;
 }
 
-
-  /* Another smartphone breakpoint is maximum width of around 420px */
-  @media only screen and (max-width: 420px) {
-    #tweet-text {
-      height: 4rem;
-    }
+/* mobile */
+@media only screen and (max-width: 420px) {
+  #tweet-text {
+    height: 4rem;
   }
+}
 
 
-
-/*  */
+/* ----- Tweet cards ----- */
 section.tweets {
   width: 100%;
   padding: 1rem 0;
@@ -77,6 +79,7 @@ article.tweet {
 article.tweet img {
   opacity: .5;
 }
+
 article.tweet:hover 
 img{
   opacity: 1;
@@ -93,7 +96,6 @@ article.tweet footer span#date  {
 article.tweet footer img#heart  {
   padding-left: 1rem;
 }
-
 
 article.tweet:hover {
   border-color: #545149;
@@ -114,7 +116,6 @@ article.tweet header, article.tweet footer {
   align-items: center;
 }
 
-
 article.tweet header {
   align-items: center;
 }
@@ -134,7 +135,6 @@ article.tweet header
 .handle{
   display: none;
 }
-
 
 article.tweet section {
   border-bottom: 2px solid #545149;
